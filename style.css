@@ -1,0 +1,121 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: black;
+}
+body {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+/* ===== CANVAS FULLSCREEN ===== */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* ===== OVERLAY CONTAINER ===== */
+.overlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* ===== NOTE STYLE ===== */
+.note {
+    background: #fff8dc;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.note:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+}
+
+/* ===== OPTIONAL: FADE IN EFFECT ===== */
+.note {
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+.notes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+}
+
+.paper {
+    width: 180px;
+    height: 130px;
+    background: #fffaf0;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: grab;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    font-size: 18px;
+
+    font-family: 'Indie Flower', cursive;
+    line-height: 1.4;
+     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, width 0.4s ease, height 0.4s ease;
+    background-image: linear-gradient(
+    rgba(0,0,0,0.03) 1px,
+    transparent 1px
+);
+background-size: 100% 22px;
+}
+
+/* Opened paper */
+.paper.open {
+    width: 390px;
+   min-height: 390px;
+    background: #fff8dc;
+    font-size: 22px;
+    transform: rotate(0deg) scale(1.05);
+
+    font-family: 'Dancing Script', cursive;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: rotateY(10deg) scale(1.1);
+}
+.large-note {
+    width: 220px;
+    height: 170px;
+}
+.final-note {
+    width: 350px;
+    height: 300px;
+    font-size: 20px;
+}
